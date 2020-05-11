@@ -3,10 +3,11 @@ A simple but effective automatic annotation tool with a flexible customisable de
 
 ## Installation 
 
-### 1: go to 
+### 1: go to main folder
 
 ```bash
-cd /
+cd ./autoLabelTool
+make 
 ```
 ## Keyboard mapping
 
@@ -26,6 +27,10 @@ Refer to the links below for additional licence info regarding OpenCV:
 https://opencv.org/license/
 
 ## Usage
+
+```bash
+cd ./autoLabelTool
+./runMain 
 
 <!---
 ### 2: Run benchmark on you own pc:
