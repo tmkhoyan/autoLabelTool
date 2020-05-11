@@ -19,7 +19,8 @@ make
 
 ## 4 : References
 Please use the following DOI to cite cvyamlParser: 
-[![DOI](https://zenodo.org/badge/184505001.svg)](https://zenodo.org/badge/latestdoi/184505001)
+[![DOI](https://zenodo.org/badge/247701434.svg)](https://zenodo.org/badge/latestdoi/247701434)
+
 
 ## 5: Licence 
 Please refer to the licence file for information about code distribution, usage and copy rights. The code is provided under BSD 3-Clause License. 
