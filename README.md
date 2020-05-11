@@ -31,7 +31,7 @@ https://opencv.org/license/
 ```bash
 cd ./autoLabelTool
 ./runMain 
-
+```
 <!---
 ### 2: Run benchmark on you own pc:
 In folder benchmark a simple script is provided to run readcvYaml on your own data.
