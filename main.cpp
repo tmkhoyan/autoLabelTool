@@ -41,7 +41,7 @@
  */
 
 
-#include "labeltool.h"
+#include "header/labeltool.h"
 
 
 #define VERBOSE_LVL1
