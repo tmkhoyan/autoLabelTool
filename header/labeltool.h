@@ -30,12 +30,12 @@
  */
 
 /*
- * Description: 	     Labeltool Main header  
- * 					example compile: make
- *					then run with:   ./runMain
+ * Description:          Labeltool Main header  
+ *                       example compile: make
+ *                       then run with:   ./runMain
  *
- * Author: 			Tigran Mkhoyan
- * Email : 			t.mkhoyan@tudelft.nl
+ * Author:               Tigran Mkhoyan
+ * Email :               t.mkhoyan@tudelft.nl
  */
 
 
@@ -51,6 +51,7 @@
 #include <sstream>
 #include <cstddef>
 #include <iostream>
+#include <fstream>
 #include <cstddef>
 #include <numeric>
 #include <sys/stat.h>

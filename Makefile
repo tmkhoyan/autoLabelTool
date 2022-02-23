@@ -50,32 +50,34 @@ OS := $(shell uname)
 ifeq ($(OS),Darwin) 
 SYSTEM_LIBRARY_DIR := /Library
 
-CXX+=-std=c++11
+CXX+=-std=c++17
 LD         := $(CXX)
 CPPFLAGS   := -I /usr/local/include/opencv4
 CXXFLAGS   := -o3 -Wno-switch #e.g., CXXFLAGS=-g -O0 for debugging
 LDFLAGS    := -I /usr/local/include/opencv4
 LDLIBS     := -L /Library/Frameworks -lopencv_core -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio \
-									   -lopencv_video -lopencv_imgproc -lopencv_tracking  -lopencv_features2d \
-									   -lopencv_calib3d -pthread  -lopencv_highgui
+									      -lopencv_video -lopencv_imgproc -lopencv_tracking  -lopencv_features2d \
+									      -lopencv_calib3d -pthread  
+# 			-ltbb
+
 # linux
 else
 # Build tools and flags
-CXX+=-std=c++11
+CXX+=-std=c++17
 LD         := $(CXX)
 CPPFLAGS   := -DUSE_GIGE -I /usr/local/include/opencv4
 CXXFLAGS   := -o3 -Wno-switch#e.g., CXXFLAGS=-g -O0 for debugging
 LDFLAGS    := -I /usr/local/include/opencv4
-LDLIBS     := -lopencv_core -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_video  -lopencv_imgproc -lopencv_tracking -lopencv_features2d -lopencv_calib3d -pthread 
-# LFLIBS = -lopencv_core -lopencv_calib3d -lopencv_imgproc -lopencv_tracking -lopencv_videoio -lopencv_imgcodecs -lopencv_video -lopencv_highgui -lopencv_flann
-
+LDLIBS     := -lopencv_core -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_video  \
+					   -lopencv_imgproc -lopencv_tracking -lopencv_features2d -lopencv_calib3d -pthread 
+# 			-ltbb
 endif
 # Rules for building
 
 # tbb
-CPPFLAGS+=-I /usr/local/Cellar/tbb/2019_U3_1/include 
-LDFLAGS+=-I /usr/local/Cellar/tbb/2019_U3_1/include 
-LDLIBS+=-L /usr/local/Cellar/tbb/2019_U3_1/lib -L/usr/local/lib/ 
+CPPFLAGS+= -I/usr/local/include/   #-I /usr/local/Cellar/tbb/2019_U3_1/include 
+LDFLAGS+= -I/usr/local/include/   #-I /usr/local/Cellar/tbb/2019_U3_1/include 
+LDLIBS+= -L /usr/local/include/  #-L /usr/local/Cellar/tbb/2019_U3_1/lib -L/usr/local/lib/ 
 
 
 all: $(NAME)
