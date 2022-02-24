@@ -17,6 +17,8 @@ make
 | AA        | set AUTO_SEQ |            |
 | M         | set MANUAL   |            |
 
+For complete list, check keymapping in the top menu of the application
+
 ## 4 : References
 Please use the following DOI to cite cvyamlParser: 
 [![DOI](https://zenodo.org/badge/247701434.svg)](https://zenodo.org/badge/latestdoi/247701434)
