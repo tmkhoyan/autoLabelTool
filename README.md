@@ -17,7 +17,7 @@ make
 | AA        | set AUTO_SEQ |            |
 | M         | set MANUAL   |            |
 
-For complete list, check keymapping in the top menu of the application
+Check keymapping in the top menu of the application
 
 ## 4 : References
 Please use the following DOI to cite cvyamlParser: 
@@ -29,12 +29,39 @@ Please refer to the licence file for information about code distribution, usage 
 Refer to the links below for additional licence info regarding OpenCV:
 https://opencv.org/license/
 
+
+## Compilation
+
+Run make, this will also automatically create an imagelist with the input data from data/frames_jpg
+
+```bash
+cd ./autoLabelTool
+make clean && make 
+```
+
+
 ## Usage
 
+Run the application, input file is specified in runMain
 ```bash
 cd ./autoLabelTool
 ./runMain 
 ```
+After setting up the windows (hystory, zoom, main view) to your liking navigate through images and annotate. 
+
+Possible modes are auto, auto-seq, manual. In auto automatic detection is applied but not registered, in auto-seq once initial labels are selected, 
+the tool will automatically thrack thme trough sequence of images. Mode can be changed by [m]
+Steps:
+
+In auto-seq mode:
+1. Use hover over desired area, pres space. Marker is selected. 
+2. Contunue for all desired markers
+3. Navigate with arrow key (right). 
+4. Detected markers are shown, press enter to store. Navigate back to remove or adjust auto detected labels.
+5. [q] to exit. Data is saved in out/labels.yaml
+
+
+
 <!---
 ### 2: Run benchmark on you own pc:
 In folder benchmark a simple script is provided to run readcvYaml on your own data.

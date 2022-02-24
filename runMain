@@ -43,7 +43,7 @@
 
 if [[ "$(uname)" == "Darwin" ]]; then 
 
-	./main input/input_le_jpg_R1_osx.txt 
+	./main input/imagelist.txt 
 else 
-	./main input/input_le_jpg_R1_linux.txt 
+	./main input/imagelist.txt 
 fi

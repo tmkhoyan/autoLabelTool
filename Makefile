@@ -43,6 +43,11 @@
 # The program to build
 NAME       := main
 
+# data paths
+OPT_IMAGEPATH_DIR :="data/frames_jpg"
+OPT_IMG_CAM :=LE
+OPT_IMG_TYPE :=.jpg
+
 # detect OS
 OS := $(shell uname)
 
@@ -79,18 +84,42 @@ CPPFLAGS+= -I/usr/local/include/   #-I /usr/local/Cellar/tbb/2019_U3_1/include
 LDFLAGS+= -I/usr/local/include/   #-I /usr/local/Cellar/tbb/2019_U3_1/include 
 LDLIBS+= -L /usr/local/include/  #-L /usr/local/Cellar/tbb/2019_U3_1/lib -L/usr/local/lib/ 
 
+# make data paths
+CDIR := $(dir $(abspath $(firstword $(MAKEFILE_LIST))))
+OPT_IMG_INPUT_FILE_DIR := $(abspath $(CDIR)/input)
 
-all: $(NAME)
+OPT_IMAGEPATH :=$(abspath $(CDIR)/$(OPT_IMAGEPATH_DIR))
+OPT_IMG_INPUT_FILE_PATH := $(abspath $(CDIR)/input)/imagelist.txt
+
+
+
+all: genimagelist $(NAME)
 
 $(NAME): $(NAME).o
 	$(LD) $(LDFLAGS) -o $@ $^ $(LDLIBS)
-# 	$(LD) $(LDFLAGS) -o $@ $^ $(LDLIBS) jetsonGPIO.c
 
 $(NAME).o: $(NAME).cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
 clean:
 	$(RM) $(NAME).o $(NAME)
+	@rm -Rf  $(OPT_IMG_INPUT_FILE_DIR)
 
 debug: 
 	@echo  "$(OS) 		" ;
+
+
+genimagelist:	
+	@echo "Imagelist generated see file [imagelist_appended.txt]..." 	;\
+	echo "for images at $(OPT_IMAGEPATH)..."			;\
+	$(generate_imagelist)
+
+
+
+define generate_imagelist
+
+[ -d $(OPT_IMG_INPUT_FILE_DIR) ] || mkdir -p $(OPT_IMG_INPUT_FILE_DIR) # create if doesnt exist
+
+ ls "$(OPT_IMAGEPATH)" | sort -n -t_ -k2 | grep ."$(OPT_IMG_TYPE)" | grep -i "$(OPT_IMG_CAM)" | awk -v path="$(OPT_IMAGEPATH)" '{print path "/" $$0}' > "$(OPT_IMG_INPUT_FILE_PATH)"
+ echo "file generated imagelist.txt generated"
+endef

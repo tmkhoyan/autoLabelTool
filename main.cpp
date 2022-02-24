@@ -69,7 +69,7 @@ int main( int argc, char** argv){
 		return -1;
 	}
 
-	std::string img_list_path  = (argc>1)? argv[1] : "input/input_le_jpg_R1_osx.txt";
+	std::string img_list_path  = (argc>1)? argv[1] : "input/imagelist.txt";
 	std::string img_out_path   = (argc>2)? argv[2] : "data_out/";
   // int nstep = (argc>3)? atoi(argv[3]) : 1;
 
