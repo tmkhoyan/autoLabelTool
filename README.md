@@ -17,7 +17,8 @@ make
 | AA        | set AUTO_SEQ |            |
 | M         | set MANUAL   |            |
 
-Check keymapping in the top menu of the application
+Check keymapping in the top menu of the application. 
+See manual/ gif files for demo
 
 ## 4 : References
 Please use the following DOI to cite cvyamlParser: 
