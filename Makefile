@@ -65,10 +65,10 @@ else
 # Build tools and flags
 CXX+=-std=c++17
 LD         := $(CXX)
-CPPFLAGS   := -DUSE_GIGE -I /usr/local/include/opencv4
+CPPFLAGS   := -I /usr/local/include/opencv4
 CXXFLAGS   := -o3 -Wno-switch#e.g., CXXFLAGS=-g -O0 for debugging
 LDFLAGS    := -I /usr/local/include/opencv4
-LDLIBS     := -lopencv_core -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_video  \
+LDLIBS     := -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_video  \
 					   -lopencv_imgproc -lopencv_tracking -lopencv_features2d -lopencv_calib3d -pthread 
 # 			-ltbb
 endif
